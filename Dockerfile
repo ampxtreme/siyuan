@@ -41,7 +41,8 @@ WORKDIR /opt/siyuan/
 COPY --from=GO_BUILD /opt/siyuan/ /opt/siyuan/
 
 RUN apk add --no-cache ca-certificates tzdata su-exec && \
-    chmod +x /opt/siyuan/entrypoint.sh
+    chmod +x /opt/siyuan/entrypoint.sh && \
+    sed -i 's/\r$//' /opt/siyuan/entrypoint.sh
 
 ENV TZ=Europe/Berlin
 ENV HOME=/home/siyuan
@@ -49,4 +50,4 @@ ENV RUN_IN_CONTAINER=true
 EXPOSE 6818
 
 ENTRYPOINT ["/opt/siyuan/entrypoint.sh"]
-CMD ["/opt/siyuan/kernel", "--accessAuthCode=test"]
+CMD ["/opt/siyuan/kernel"]
