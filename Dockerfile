@@ -46,7 +46,7 @@ RUN apk add --no-cache ca-certificates tzdata su-exec && \
 ENV TZ=Europe/Berlin
 ENV HOME=/home/siyuan
 ENV RUN_IN_CONTAINER=true
-EXPOSE 68064
+EXPOSE 6818
 
 ENTRYPOINT ["/opt/siyuan/entrypoint.sh"]
 CMD ["/opt/siyuan/kernel"]
