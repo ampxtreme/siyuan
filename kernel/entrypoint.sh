@@ -1,6 +1,17 @@
 #!/bin/sh
 set -e
 
+echo "Starting entrypoint script"
+echo "accessAuthCode: $accessAuthCode"
+echo "Command arguments: $@"
+
+if [ -z "$accessAuthCode" ]; then
+    echo "Error: accessAuthCode must be set"
+    exit 1
+fi
+
+exec su-exec siyuan:siyuan /opt/siyuan/kernel --accessAuthCode="$accessAuthCode" "$@"
+
 # Default values
 PUID=${PUID:-1000}
 PGID=${PGID:-1000}
