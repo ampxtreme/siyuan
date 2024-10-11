@@ -43,7 +43,7 @@ COPY --from=GO_BUILD /opt/siyuan/ /opt/siyuan/
 RUN apk add --no-cache ca-certificates tzdata su-exec && \
     chmod +x /opt/siyuan/entrypoint.sh
 
-ENV TZ=Asia/Shanghai
+ENV TZ=Europe/Berlin
 ENV HOME=/home/siyuan
 ENV RUN_IN_CONTAINER=true
 EXPOSE 6806
