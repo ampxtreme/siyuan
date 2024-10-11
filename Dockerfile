@@ -49,4 +49,4 @@ ENV RUN_IN_CONTAINER=true
 EXPOSE 6818
 
 ENTRYPOINT ["/opt/siyuan/entrypoint.sh"]
-CMD ["/opt/siyuan/kernel"]
+CMD ["/opt/siyuan/kernel", "--accessAuthCode=${accessAuthCode}"]
